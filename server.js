@@ -43,7 +43,8 @@ const getUserId = (token) => {
 }
 
 app.post('/callback', bodyParser.urlencoded({ extended: false }), (req, res) => {
-	const clientSecret = getClientSecret()
+	console.log(req)
+	const clientSecret = 'eyJraWQiOiJUNjlINzdBRks2IiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJWMzJXTVI5NUNUIiwiaWF0IjoxNTc1ODc1NDg3LCJleHAiOjE1OTE0Mjc0ODcsImF1ZCI6Imh0dHBzOi8vYXBwbGVpZC5hcHBsZS5jb20iLCJzdWIiOiJjb20uYW1hem9uYXdzLmVjMi01NC04MC0xNzItMjQzLmNvbXB1dGUtMS5jbGllbnQifQ.9WigqLy8pXYkxY3kMFJ368gI1e230SDMg9fEEcgYKdrGcgJlmPh0APtQJOMG73OaSm3LX5itsC-8cf-u_vlmYg'
 	const requestBody = {
 		grant_type: 'authorization_code',
 		code: req.body.code,
@@ -52,8 +53,6 @@ app.post('/callback', bodyParser.urlencoded({ extended: false }), (req, res) => 
 		client_secret: clientSecret,
 		scope: process.env.SCOPE
 	}
-	console.log(req)
-
 	axios.request({
 		method: "POST",
 		url: "https://appleid.apple.com/auth/token",

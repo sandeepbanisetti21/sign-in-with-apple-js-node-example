@@ -29,7 +29,7 @@ const getClientSecret = () => {
 		header: headers,
 		expiresIn: '24h'
 	});
-
+	console.log(token)
 	return token
 }
 
@@ -52,6 +52,7 @@ app.post('/callback', bodyParser.urlencoded({ extended: false }), (req, res) => 
 		client_secret: clientSecret,
 		scope: process.env.SCOPE
 	}
+	console.log(req)
 
 	axios.request({
 		method: "POST",
@@ -72,4 +73,4 @@ app.post('/callback', bodyParser.urlencoded({ extended: false }), (req, res) => 
 	})
 })
 
-app.listen(process.env.PORT || 3000, () => console.log(`App listening on port ${process.env.PORT || 3000}!`))
+app.listen(3000, () => console.log(`App listening on port ${process.env.PORT || 3000}!`))

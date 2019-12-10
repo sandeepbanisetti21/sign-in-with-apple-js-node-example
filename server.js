@@ -48,7 +48,7 @@ app.post('/callback', bodyParser.urlencoded({ extended: false }), (req, res) => 
 	const requestBody = {
 		grant_type: 'authorization_code',
 		code: req.body.code,
-		redirect_uri: 'http://ec2-54-80-172-243.compute-1.amazonaws.com:3000/callback',
+		redirect_uri: 'http://ec2-54-80-172-243.compute-1.amazonaws.com:8080/callback',
 		client_id: 'com.amazonaws.ec2-54-80-172-243.compute-1.client',
 		client_secret: clientSecret,
 		scope: 'name email'
@@ -72,4 +72,4 @@ app.post('/callback', bodyParser.urlencoded({ extended: false }), (req, res) => 
 	})
 })
 
-app.listen(3000, () => console.log(`App listening on port ${process.env.PORT || 3000}!`))
+app.listen(8080, () => console.log(`App listening on port ${process.env.PORT || 8080}!`))

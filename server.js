@@ -48,7 +48,7 @@ app.post('/callback', bodyParser.urlencoded({ extended: false }), (req, res) => 
 	const requestBody = {
 		grant_type: 'authorization_code',
 		code: req.body.code,
-		redirect_uri: 'http://ec2-54-80-172-243.compute-1.amazonaws.com:3000/callback',
+		redirect_uri: 'http://ec2-35-153-142-185.compute-1.amazonaws.com:3000/callback',
 		client_id: 'com.amazonaws.ec2-54-80-172-243.compute-1.client',
 		client_secret: clientSecret,
 		scope: 'name email'
